@@ -15,7 +15,7 @@
 @interface ViewController (){
 
 }
-
+@property (nonatomic, strong) UIImageView *iamgeView;
 @property (nonatomic,strong) NSString *numberString;
 
 @end
@@ -24,12 +24,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    CFAbsoluteTime time = CFAbsoluteTimeGetCurrent();
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSLog(@"123123123 = @f",CFAbsoluteTimeGetCurrent() - time);
-    });
-    
+//    
+//    CFAbsoluteTime time = CFAbsoluteTimeGetCurrent();
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        NSLog(@"123123123 = @f",CFAbsoluteTimeGetCurrent() - time);
+//    });
+//    
+//
+//    NSString *finePath = [NSTemporaryDirectory() stringByAppendingString:@"123.jpeg"];
+//     UIImage *image = [UIImage imageWithContentsOfFile:finePath];
+//    
+//    _iamgeView = [[UIImageView alloc] initWithImage:image];
+//    self.iamgeView.frame = CGRectMake(0, 200, 300, 300);
+//    [self.view addSubview:self.iamgeView];
+//    
+////    @autoreleasepool {
+////        NSData *data = UIImageJPEGRepresentation(image, 0.8);
+//        [NSFileManager.defaultManager createFileAtPath:finePath contents:UIImageJPEGRepresentation(image, 0.8) attributes:nil];
+////    }
+//
+//
+//    CGImageRef cgimage = image.CGImage;
+//    image = nil;
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        CGImageRelease(cgimage);
+//        NSLog(@"123");
+//    });
+
     
     
 }
@@ -61,6 +82,8 @@
 
 - (IBAction)beCentral:(id)sender {
     BeCentralVewController *vc = [[BeCentralVewController alloc]init];
+    [self.iamgeView removeFromSuperview];
+    self.iamgeView = nil;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

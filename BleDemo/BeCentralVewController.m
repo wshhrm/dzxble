@@ -11,6 +11,7 @@
 #import "DetailViewController.h"
 #import <Masonry/Masonry.h>
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "BePeripheralViewController.h"
 #import "UIDevice+ZTR.h"
 
 @interface BeCentralVewController () <UITableViewDelegate, UITableViewDataSource>
@@ -95,6 +96,28 @@
         make.bottom.mas_equalTo(self.resultTableView.mas_top);
         make.left.mas_equalTo(refreshDataBtn.mas_right);
     }];
+    
+    
+    
+    
+    UIButton *mapBtn = [UIButton new];
+       [mapBtn setTitle:@"地图定位" forState:UIControlStateNormal];
+       [[mapBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+           @strongify(self);
+           BePeripheralViewController *vc = [[BePeripheralViewController alloc] init];
+           [self.navigationController pushViewController:vc animated:YES];
+       }];
+       mapBtn.backgroundColor = UIColor.systemPurpleColor;
+    [self.view addSubview:mapBtn];
+     [mapBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.top.mas_equalTo(BDV_NAVI_BAR_HEIGHT);
+         make.bottom.mas_equalTo(self.resultTableView.mas_top);
+         make.left.mas_equalTo(continueRefreshBtn.mas_right);
+         make.right.mas_equalTo(self.view);
+     }];
+    
+    
+    
     
     /*
      设置主设备的委托,CBCentralManagerDelegate

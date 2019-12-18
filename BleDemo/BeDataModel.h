@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray <NSNumber *> *RSSIs;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *uuid;
+@property (nonatomic, strong) CBPeripheral *peripheral;
+@property (nonatomic, strong) NSDictionary *dicData;
 
 @end
 

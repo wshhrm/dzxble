@@ -185,11 +185,14 @@
         BeDataModel *model = [[BeDataModel alloc] init];
         model.name = peripheral.name;
         model.uuid = [peripheral.identifier UUIDString];
+        model.peripheral = peripheral;
         [model.RSSIs addObject:RSSI];
         [self.dataModels setValue:model forKey:[peripheral.identifier UUIDString]];
         [self.uuidArray addObject:[peripheral.identifier UUIDString]];
+        [self.dataModels objectForKey:[peripheral.identifier UUIDString]].dicData = advertisementData;
     } else {
         [[self.dataModels objectForKey:[peripheral.identifier UUIDString]].RSSIs addObject:RSSI];
+        [self.dataModels objectForKey:[peripheral.identifier UUIDString]].dicData = advertisementData;
     }
     //接下连接我们的测试设备，如果你没有设备，可以下载一个app叫lightbule的app去模拟一个设备
     //这里自己去设置下连接规则，我设置的是P开头的设备

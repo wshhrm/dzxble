@@ -2,8 +2,7 @@
 //  BeCentraliewController.m
 //  BleDemo
 //
-//  Created by ztr on 15/9/7.
-//  Copyright (c) 2015年 liuyanwei. All rights reserved.
+//  Created by ztr on 19/9/7.
 //
 
 #import "BeCentralVewController.h"

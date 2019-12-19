@@ -2,8 +2,7 @@
 //  BePeripheralViewController.h
 //  BleDemo
 //
-//  Created by ZTELiuyw on 15/9/7.
-//  Copyright (c) 2015年 liuyanwei. All rights reserved.
+//  Created by ztr on 19/9/7.
 //
 
 #import <UIKit/UIKit.h>

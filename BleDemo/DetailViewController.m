@@ -3,7 +3,6 @@
 //  BleDemo
 //
 //  Created by 张天润 on 2019/11/26.
-//  Copyright © 2019 liuyanwei. All rights reserved.
 //
 
 #import "DetailViewController.h"

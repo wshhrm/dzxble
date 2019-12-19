@@ -2,8 +2,7 @@
 //  BePeripheralViewController.m
 //  BleDemo
 //
-//  Created by ZTELiuyw on 15/9/7.
-//  Copyright (c) 2015年 liuyanwei. All rights reserved.
+//  Created by ztr on 19/9/7.
 //
 
 #import "BePeripheralViewController.h"
@@ -19,6 +18,10 @@
 
 @property (nonatomic, strong) NSArray *pointArrayX;
 @property (nonatomic, strong) NSArray *pointArrayY;
+
+@property (nonatomic, strong) NSMutableArray *lengthArray;
+
+@property (nonatomic, assign) CGPoint centerPoint;
 
 @end
 
@@ -71,10 +74,13 @@
     int x = arc4random() % (int)BDV_Screen_Width;
     int y = arc4random() % (int)BDV_Screen_Width;
     
+    self.centerPoint = CGPointMake((x * 1.0) / BDV_Screen_Width, (y * 1.0) / BDV_Screen_Width);
+    
     x = x > 0 ? x:12;
     x = x < BDV_Screen_Width ? x : BDV_Screen_Width - 12 ;
     y = y > 0 ? y:12;
     y = y < BDV_Screen_Width ? y : BDV_Screen_Width - 12 ;
+    
     
     _currentPoint.frame = CGRectMake(x - 12, y - 12, 24, 24);
     [self.backgroundView addSubview:_currentPoint];
@@ -141,6 +147,24 @@
     
     [view addSubview:label];
     [view addSubview:label1];
+    
+    CGFloat currentHeight = 20;
+    
+    _lengthArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 8; i++) {
+        CGFloat length = sqrt((self.centerPoint.x - [self.pointArrayX[i] floatValue]) * (self.centerPoint.x - [self.pointArrayX[i] floatValue]) + (self.centerPoint.y - [self.pointArrayY[i] floatValue]) * (self.centerPoint.y - [self.pointArrayY[i] floatValue]));
+        [self.lengthArray addObject:@(length)];
+        
+        UILabel *label = [UILabel new];
+        label.textColor = UIColor.blackColor;
+        label.text = [NSString stringWithFormat:@"距离beacon%d坐标(%.2f,%.2f)距离为    %.3fm",i+1,[self.pointArrayX[i] floatValue] * 10,(1 - [self.pointArrayY[i] floatValue]) * 10, length * 10];
+        label.frame = CGRectMake(0, currentHeight, BDV_Screen_Width, 20);
+        [self.bottomView addSubview:label];
+        currentHeight += 20;
+    }
+    
+    
+    
 }
 
 

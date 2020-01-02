@@ -146,8 +146,7 @@
     label1.text = [NSString stringWithFormat:@"(%f,%f)",self.currentPoint.frame.origin.x / BDV_Screen_Width * 10,10 - self.currentPoint.frame.origin.y / BDV_Screen_Width * 10];
     
     [view addSubview:label];
-    [view addSubview:label1];
-    
+    [view addSubview:label1];    
     CGFloat currentHeight = 20;
     
     _lengthArray = [[NSMutableArray alloc] init];

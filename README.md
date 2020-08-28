@@ -1,7 +1,6 @@
-|     参数名     |               参数含义               |
-| :------------: | :----------------------------------: |
-|    clipData    |        业务方传入的剪切板数据        |
-|     token      |            登录用户的标识            |
-| invitationCode |                邀请码                |
-|     intent     |     Android 启动的组件的意图对象     |
-|     extra      | 分享者传递的自定义参数，推荐使用JSON |
+|     接口名              |               参数或回调变量含义             |          传入参数       |
+| :------------------ -: | :---------------------------------------------: |:----------------------: |
+|   SdkDeeplinkSetSchemes|        设置业务方的额外schems                 |      List of strings     |
+|   SdkDeeplinkSetToken  |            登录用户的标识                     |         string      |
+|   SdkDeeplinkSetHost   |         业务方自己的服务端域名                |          string      |
+|   SdkInit              |         业务方初始化DeepLink功能              |          string      |
